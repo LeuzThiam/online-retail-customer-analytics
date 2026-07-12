@@ -1,0 +1,47 @@
+# Environnement Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données brutes et générées
+data/raw/*
+data/interim/*
+data/processed/*
+
+# Conserver les dossiers vides
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Bases locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Variables d'environnement
+.env
+
+# Fichiers Power BI
+*.pbix
+
+# Fichiers temporaires
+*.tmp
+*.log
+
+# Système
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.vs/
+
+# Excel temporaire
+~$*.xlsx
+~$*.xls
