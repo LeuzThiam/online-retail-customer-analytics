@@ -1,0 +1,33 @@
+// Mesures DAX principales — dashboard Online Retail II
+// Table de faits : transactions_clean (grain = ligne de transaction)
+// Table de dates : DimDate (colonne calculée, voir dashboard/README.md)
+
+Gross Revenue =
+SUMX(transactions_clean, MAX(transactions_clean[line_revenue], 0))
+
+Cancelled Value =
+SUMX(transactions_clean, MAX(-transactions_clean[line_revenue], 0))
+
+Net Revenue =
+SUM(transactions_clean[line_revenue])
+
+Number of Orders =
+DISTINCTCOUNT(transactions_clean[invoice_no])
+
+Average Order Value =
+DIVIDE([Net Revenue], [Number of Orders])
+
+Active Customers =
+DISTINCTCOUNT(transactions_clean[customer_id])
+
+Units Sold =
+SUM(transactions_clean[quantity])
+
+Cancellation Rate =
+DIVIDE([Cancelled Value], [Gross Revenue])
+
+Revenue Previous Year =
+CALCULATE([Net Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+
+Revenue YoY Growth =
+DIVIDE([Net Revenue] - [Revenue Previous Year], [Revenue Previous Year])
