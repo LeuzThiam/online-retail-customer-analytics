@@ -1,0 +1,12 @@
+pandas
+numpy
+openpyxl
+matplotlib
+plotly
+scikit-learn
+statsmodels
+sqlalchemy
+psycopg2-binary
+jupyter
+pytest
+mlxtend
